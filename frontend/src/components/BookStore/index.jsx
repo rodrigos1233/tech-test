@@ -28,7 +28,7 @@ function BookStore({bookStore}) {
                         <h2>{name}</h2>
                         <Rating rating={rating} />
                     </div>
-                    <BooksTable books={books} title="Best selling books" />
+                    <BooksTable books={books} title="Best selling books" maxBooks={2} />
                 </div>
             </div>
             <div className="bookstore-card__footer">
