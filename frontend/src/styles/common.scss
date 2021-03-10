@@ -1,0 +1,13 @@
+@import "./reset.scss";
+@import "./typography.scss";
+@import "./colors.scss";
+
+$padding-s: 10px;
+$padding-m: 14px;
+$half-padding-m: $padding-m / 2;
+$padding-l: 20px;
+
+a {
+  text-decoration: none;
+  color: $blue-link;
+}

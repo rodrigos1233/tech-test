@@ -1,0 +1,8 @@
+@import "../../styles/common.scss";
+
+.bookstores {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: $padding-l;
+}

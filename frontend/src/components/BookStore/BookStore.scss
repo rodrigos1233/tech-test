@@ -1,0 +1,53 @@
+@import "../../styles/common.scss";
+
+.bookstore-card {
+  padding: 10px;
+  border-radius: $padding-s;
+  border: black 2px solid;
+  width: 100%;
+  max-width: 900px;
+  margin: $padding-s 0;
+
+  &__main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: $half-padding-m;
+
+    &__image {
+      margin: $half-padding-m;
+      flex-shrink: 0;
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      border: black 2px solid;
+      background-size: cover;
+      background-position: center;
+    }
+
+    &__info {
+      flex-grow: 1;
+      margin: $half-padding-m;
+
+      &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-grow: 1;
+      }
+    }
+  }
+
+  &__footer {
+    padding: $half-padding-m;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    p {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
