@@ -3,13 +3,27 @@ import Star from '../../assets/icons/star.svg'
 import YellowStar from '../../assets/icons/yellow-star.svg'
 import './Rating.scss'
 
-function Rating({rating}) {
+function Rating({rating, id}) {
+    const fetchStoreDataUrl = `http://localhost:3000/stores/${id}`
 
-    const [updatedRating, setUpsatedRating] = useState(rating)
+    const [updatedRating, setUpdatedRating] = useState(rating)
 
     function handleClick(k) {
-        setUpsatedRating(k)
-    }
+        setUpdatedRating(k)
+        fetch(fetchStoreDataUrl, {
+            method: 'PATCH',
+            headers: {'Content-type': 'application/vnd.api+json'},
+            body: JSON.stringify({
+                data: {
+                    id: id,
+                    type: "stores",
+                    attributes: {
+                        rating: k,
+                    }
+                }
+            })
+        }
+    )}
 
     return (
         <div className="rating-stars">

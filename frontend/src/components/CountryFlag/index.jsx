@@ -5,7 +5,7 @@ function CountryFlag({country}) {
     const [countryFlag, setCountryFlag] = useState('')
     const [countryName, setCountryName] = useState('')
 
-    const fetchCountryUrl = `https://restcountries.eu/rest/v2/alpha/${country.toLowerCase()}?fields=name;flag`
+    const fetchCountryUrl = `https://restcountries.eu/rest/v2/alpha/${country?.toLowerCase()}?fields=name;flag`
 
     fetch(fetchCountryUrl)
     .then(response => response.json())
@@ -13,10 +13,7 @@ function CountryFlag({country}) {
       setCountryFlag(jsonData.flag)
       setCountryName(jsonData.name)
     })
-
-    console.log({countryFlag})
-
-
+    
     return (
         <img 
             src={countryFlag} 
