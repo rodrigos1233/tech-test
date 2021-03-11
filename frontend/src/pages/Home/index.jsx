@@ -122,7 +122,7 @@ function Home() {
         const storesBooks = []
 
         bookIds.forEach(bookId => {
-            storesBooks.push(books.filter(book => book.id === bookId))
+            storesBooks.push(...books.filter(book => book.id === bookId))
         })
 
         store.attributes.books = (storesBooks ? storesBooks : [])

@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './BooksTable.scss'
 
 function BooksTable({books, title, maxBooks}) {
-    books.sort((a, b) => parseFloat(b.copiesSold) - parseFloat(a.copiesSold));
+    books.sort((a, b) => parseFloat(b.attributes.copiesSold) - parseFloat(a.attributes.copiesSold));
+
+    const [displayedBooks, setDisplayedBooks] = useState(books)
 
     if (books.length > maxBooks) {
         const booksToRemove = maxBooks - books.length
-        books.pop(booksToRemove)
+        const reducedBooks = books.pop(booksToRemove)
+
+        setDisplayedBooks(reducedBooks)
     }
 
     return (
@@ -22,10 +26,13 @@ function BooksTable({books, title, maxBooks}) {
                 {books?.map((book) => (
                     <tr key={book.id}>
                         <td>
-                            {book.name}
+                            {book.attributes.name}
                         </td>
                         <td>
-                            {book.author}
+                            {book.attributes.author}
+                        </td>
+                        <td>
+                            {book.attributes.copiesSold}
                         </td>
                     </tr>
             ))}
