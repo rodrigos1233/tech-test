@@ -11,7 +11,7 @@ function BookStore({attributes, id}) {
 
     const date = new Date(establishmentDate.toString())
 
-    const formattedDate = `${date.getDate()}.${date.getMonth()}.${date.getFullYear()}`
+    const formattedDate = `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`
 
     return (
         <div className="bookstore-card">
