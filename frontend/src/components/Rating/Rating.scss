@@ -1,7 +1,26 @@
+@import "../../styles/common.scss";
+
 .rating-stars {
   display: flex;
 
   img {
     height: 20px;
+    transition: all 0.1s ease;
+
+    &:not(:last-child) {
+      margin-right: $padding-s;
+    }
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.5);
+    }
+
+    &.current-rating {
+      &:hover {
+        cursor: default;
+        transform: none;
+      }
+    }
   }
 }

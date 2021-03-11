@@ -32,6 +32,7 @@ function Rating({rating, id}) {
                     key={k}
                     src={k >= updatedRating ? Star : YellowStar}
                     onClick={() => handleClick(k + 1)}
+                    className={`${updatedRating === k + 1  ? 'current-rating' : ''}`}
                 />
             ))}
 
