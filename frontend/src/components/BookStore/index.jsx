@@ -5,23 +5,20 @@ import CountryFlag from "../CountryFlag";
 import './BookStore.scss'
 import BooksTable from '../BooksTable';
 
-function BookStore({bookStore}) {
+function BookStore({attributes}) {
 
-    const {name, image, establishmentDate, website, rating, country, books} = bookStore
+    const {name, storeImage, establishmentDate, website, rating, country, books} = attributes
 
     const date = new Date(establishmentDate.toString())
 
     const formattedDate = `${date.getDate()}.${date.getMonth()}.${date.getFullYear()}`
-
-
-
 
     return (
         <div className="bookstore-card">
             <div className="bookstore-card__main">
                 <div 
                     className="bookstore-card__main__image"
-                    style={{backgroundImage: `url(${image})`}}    
+                    style={{backgroundImage: `url(${storeImage})`}}    
                 />
                 <div className="bookstore-card__main__info">
                     <div className="bookstore-card__main__info__header">
