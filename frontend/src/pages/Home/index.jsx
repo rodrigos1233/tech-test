@@ -149,6 +149,7 @@ function Home() {
                 <BookStore
                     key={bookStore.id}
                     attributes={bookStore.attributes}
+                    id={bookStore.id}
                 />
             ))}
         </div>

@@ -31,9 +31,6 @@ function BooksTable({books, title, maxBooks}) {
                         <td>
                             {book.attributes.author}
                         </td>
-                        <td>
-                            {book.attributes.copiesSold}
-                        </td>
                     </tr>
             ))}
             {books.length === 0 && (

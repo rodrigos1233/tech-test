@@ -5,7 +5,7 @@ import CountryFlag from "../CountryFlag";
 import './BookStore.scss'
 import BooksTable from '../BooksTable';
 
-function BookStore({attributes}) {
+function BookStore({attributes, id}) {
 
     const {name, storeImage, establishmentDate, website, rating, country, books} = attributes
 
@@ -23,9 +23,16 @@ function BookStore({attributes}) {
                 <div className="bookstore-card__main__info">
                     <div className="bookstore-card__main__info__header">
                         <h2>{name}</h2>
-                        <Rating rating={rating} />
+                        <Rating 
+                            rating={rating} 
+                            id={id}
+                        />
                     </div>
-                    <BooksTable books={books} title="Best selling books" maxBooks={2} />
+                    <BooksTable 
+                        books={books} 
+                        title="Best selling books" 
+                        maxBooks={2} 
+                    />
                 </div>
             </div>
             <div className="bookstore-card__footer">
