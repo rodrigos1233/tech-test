@@ -14,18 +14,19 @@ function BooksTable({books, title, maxBooks}) {
     }
 
     return (
-        <table className="books-table">
+        <table className="books-table" cellspacing="0" cellpadding="0">
             <thead>
                 <tr>
                     <td>
                         <h3>{title}</h3>
                     </td>
+                    <td></td>
                 </tr>
             </thead>
             <tbody>
                 {books?.map((book) => (
                     <tr key={book.id}>
-                        <td>
+                        <td className="book-title">
                             {book.attributes.name}
                         </td>
                         <td>

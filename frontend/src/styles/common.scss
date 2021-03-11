@@ -9,5 +9,10 @@ $padding-l: 20px;
 
 a {
   text-decoration: none;
-  color: $blue-link;
+  color: $orange-link;
+  font-weight: bold;
+
+  &:hover {
+    color: black;
+  }
 }

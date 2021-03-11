@@ -1,0 +1,43 @@
+@import "../../styles/common.scss";
+
+.books-table {
+  width: 100%;
+  border: none;
+
+  tr {
+    border: none;
+  }
+
+  td {
+    padding: 5px 10px;
+    border: none;
+  }
+
+  thead {
+    width: 100%;
+
+    td {
+      border-bottom: $orange-link 2px solid;
+    }
+  }
+
+  tbody {
+    tr {
+      &:not(:last-child) {
+        td {
+          border-bottom: $orange-background 1px solid;
+        }
+      }
+
+      td {
+        &:nth-child(2) {
+          width: 37%;
+        }
+
+        &.book-title {
+          font-style: italic;
+        }
+      }
+    }
+  }
+}
