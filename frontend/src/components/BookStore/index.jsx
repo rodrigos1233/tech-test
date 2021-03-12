@@ -37,7 +37,7 @@ function BookStore({attributes, id}) {
             </div>
             <div className="bookstore-card__footer">
                 <p>{`${formattedDate} - `}<a href={website}>{website}</a></p>
-                <CountryFlag country={country} />
+                <CountryFlag countryCode={country} />
             </div>
         
         </div>

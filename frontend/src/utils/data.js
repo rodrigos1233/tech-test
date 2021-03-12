@@ -26,3 +26,9 @@ export const fetchCountries = async () => {
     const countries = await countriesData.json()
     return countries.data
 };
+
+export const fetchCountry = async (countryCode) => {
+    const countryData = await fetch(`https://restcountries.eu/rest/v2/alpha/${countryCode?.toLowerCase()}?fields=name;flag`)
+    const country = await countryData.json()
+    return country
+};
