@@ -1,18 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import {fetchCountry} from '../../utils/data'
 import './CountryFlag.scss'
 
-function CountryFlag({country}) {
+function CountryFlag({countryCode}) {
     const [countryFlag, setCountryFlag] = useState('')
     const [countryName, setCountryName] = useState('')
 
-    const fetchCountryUrl = `https://restcountries.eu/rest/v2/alpha/${country?.toLowerCase()}?fields=name;flag`
+    useEffect(async() => {
+        if (countryCode) {
+            const {name, flag} = await fetchCountry(countryCode)
+            setCountryFlag(flag)
+            setCountryName(name)
+        }
+    }, [countryCode])
 
-    fetch(fetchCountryUrl)
-    .then(response => response.json())
-    .then((jsonData) => {
-      setCountryFlag(jsonData.flag)
-      setCountryName(jsonData.name)
-    })
     
     return (
         <img 

@@ -5,4 +5,12 @@
   flex-direction: column;
   align-items: center;
   padding: $padding-l;
+
+  h1 {
+    margin-bottom: $padding-l;
+  }
+
+  select {
+    margin-bottom: $padding-l;
+  }
 }
