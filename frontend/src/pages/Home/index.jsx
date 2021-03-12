@@ -2,6 +2,22 @@ import React, { useState, useEffect } from 'react'
 import BookStore from './../../components/BookStore'
 import './Home.scss'
 
+const SORTING_OPTIONS = [
+    {
+        name: 'Alphabetical',
+        sortFn: (a, b) => a.attributes.name.localeCompare(b.attributes.name)
+    },
+    {
+        name: 'By date',
+        sortFn: (a, b) => new Date(b.attributes.establishmentDate) - new Date(a.attributes.establishmentDate)
+    },
+    {
+        name: 'By rating',
+        sortFn: (a, b) => b.attributes.rating - a.attributes.rating
+    },
+]
+    
+
 function Home() {
     const fetchStoresDataUrl = 'http://localhost:3000/stores'
     const fetchBooksDataUrl = 'http://localhost:3000/books'
@@ -13,6 +29,8 @@ function Home() {
     const [jsonAuthors, setJsonAuthors] = useState([]);
     const [jsonCountries, setJsonCountries] = useState([]);
 
+    const [sortStoresOption, setSortStoresOption] = useState('Alphabetical')
+
     useEffect(() => {
         const fetchStores = async () => {
             fetch(fetchStoresDataUrl)
@@ -21,7 +39,6 @@ function Home() {
                 setJsonStores(jsonData.data);
             })
         };
-
         fetchStores()
     }, []);
 
@@ -85,9 +102,26 @@ function Home() {
         store.attributes.country = country[0]?.attributes?.code
     })
 
+    const sortOption = SORTING_OPTIONS.find(({ name }) => name === sortStoresOption);
+    if (sortOption) {
+        stores.sort(sortOption.sortFn);
+    }
+
     return (
         <div className="bookstores">
             <h1>Book Stores</h1>
+            <div className="custom-select">
+                <select onChange={e => setSortStoresOption(e.currentTarget.value)}>
+                    {SORTING_OPTIONS.map(({ name }) => (
+                        <option
+                            key={name}
+                            value={name}
+                        >
+                            {name}
+                        </option>
+                    ))}
+                </select>
+            </div>
             {stores?.map((bookStore) => (
                 <BookStore
                     key={bookStore.id}

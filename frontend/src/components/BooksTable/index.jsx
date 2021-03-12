@@ -14,7 +14,7 @@ function BooksTable({books, title, maxBooks}) {
     }
 
     return (
-        <table className="books-table" cellspacing="0" cellpadding="0">
+        <table className="books-table" cellSpacing="0" cellPadding="0">
             <thead>
                 <tr>
                     <td>
